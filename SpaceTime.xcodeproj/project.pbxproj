@@ -14,20 +14,19 @@
 		FC6312B61F2200AB00FE23E0 /* JulianDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312B01F2200AB00FE23E0 /* JulianDate.swift */; };
 		FC6312B71F2200AB00FE23E0 /* LocationAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312B11F2200AB00FE23E0 /* LocationAndTime.swift */; };
 		FC6312B81F2200AB00FE23E0 /* SiderealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312B21F2200AB00FE23E0 /* SiderealTime.swift */; };
-		FC6312C01F2200B100FE23E0 /* SpaceTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312BF1F2200B100FE23E0 /* SpaceTimeTests.swift */; };
 		FC6312C21F2200B100FE23E0 /* SpaceTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6312A21F22002600FE23E0 /* SpaceTime.framework */; };
 		FC6312CB1F2200C300FE23E0 /* CoordinateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312C81F2200C300FE23E0 /* CoordinateTest.swift */; };
 		FC6312CC1F2200C300FE23E0 /* JulianDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312C91F2200C300FE23E0 /* JulianDateTest.swift */; };
 		FC6312CD1F2200C300FE23E0 /* SiderealTimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312CA1F2200C300FE23E0 /* SiderealTimeTest.swift */; };
 		FC6312D91F22032000FE23E0 /* MathUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6312D81F22032000FE23E0 /* MathUtil.framework */; };
-		FC6312DA1F22032700FE23E0 /* MathUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6312D81F22032000FE23E0 /* MathUtil.framework */; };
 		FC6312FA1F2494EE00FE23E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312F91F2494EE00FE23E0 /* AppDelegate.swift */; };
 		FC6312FC1F2494EE00FE23E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312FB1F2494EE00FE23E0 /* ViewController.swift */; };
 		FC6312FF1F2494EE00FE23E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC6312FD1F2494EE00FE23E0 /* Main.storyboard */; };
 		FC6313011F2494EE00FE23E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC6313001F2494EE00FE23E0 /* Assets.xcassets */; };
 		FC6313041F2494EE00FE23E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC6313021F2494EE00FE23E0 /* LaunchScreen.storyboard */; };
-		FC6313091F24973400FE23E0 /* MathUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6312D81F22032000FE23E0 /* MathUtil.framework */; };
-		FC63130C1F24975E00FE23E0 /* SpaceTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6312A21F22002600FE23E0 /* SpaceTime.framework */; };
+		FC6313191F2562ED00FE23E0 /* MathUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6312D81F22032000FE23E0 /* MathUtil.framework */; };
+		FC63131D1F25636C00FE23E0 /* SpaceTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6312A21F22002600FE23E0 /* SpaceTime.framework */; };
+		FC63131E1F25636C00FE23E0 /* SpaceTime.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC6312A21F22002600FE23E0 /* SpaceTime.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +37,7 @@
 			remoteGlobalIDString = FC6312A11F22002600FE23E0;
 			remoteInfo = SpaceTime;
 		};
-		FC63130A1F24974600FE23E0 /* PBXContainerItemProxy */ = {
+		FC63131F1F25636C00FE23E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FC6312991F22002600FE23E0 /* Project object */;
 			proxyType = 1;
@@ -46,6 +45,20 @@
 			remoteInfo = SpaceTime;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FC6313211F25636C00FE23E0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FC63131E1F25636C00FE23E0 /* SpaceTime.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FC6312A21F22002600FE23E0 /* SpaceTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpaceTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +71,6 @@
 		FC6312B11F2200AB00FE23E0 /* LocationAndTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAndTime.swift; sourceTree = "<group>"; };
 		FC6312B21F2200AB00FE23E0 /* SiderealTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiderealTime.swift; sourceTree = "<group>"; };
 		FC6312BD1F2200B100FE23E0 /* SpaceTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC6312BF1F2200B100FE23E0 /* SpaceTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTimeTests.swift; sourceTree = "<group>"; };
 		FC6312C11F2200B100FE23E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC6312C81F2200C300FE23E0 /* CoordinateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateTest.swift; sourceTree = "<group>"; };
 		FC6312C91F2200C300FE23E0 /* JulianDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JulianDateTest.swift; sourceTree = "<group>"; };
@@ -87,7 +99,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC6312C21F2200B100FE23E0 /* SpaceTime.framework in Frameworks */,
-				FC6312DA1F22032700FE23E0 /* MathUtil.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC63130C1F24975E00FE23E0 /* SpaceTime.framework in Frameworks */,
-				FC6313091F24973400FE23E0 /* MathUtil.framework in Frameworks */,
+				FC63131D1F25636C00FE23E0 /* SpaceTime.framework in Frameworks */,
+				FC6313191F2562ED00FE23E0 /* MathUtil.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +156,6 @@
 				FC6312C81F2200C300FE23E0 /* CoordinateTest.swift */,
 				FC6312C91F2200C300FE23E0 /* JulianDateTest.swift */,
 				FC6312CA1F2200C300FE23E0 /* SiderealTimeTest.swift */,
-				FC6312BF1F2200B100FE23E0 /* SpaceTimeTests.swift */,
 				FC6312C11F2200B100FE23E0 /* Info.plist */,
 			);
 			path = SpaceTimeTests;
@@ -212,7 +222,6 @@
 				FC6312B91F2200B100FE23E0 /* Sources */,
 				FC6312BA1F2200B100FE23E0 /* Frameworks */,
 				FC6312BB1F2200B100FE23E0 /* Resources */,
-				FC6312D21F22015000FE23E0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -232,11 +241,12 @@
 				FC6312F41F2494EE00FE23E0 /* Frameworks */,
 				FC6312F51F2494EE00FE23E0 /* Resources */,
 				FC63130D1F24979800FE23E0 /* ShellScript */,
+				FC6313211F25636C00FE23E0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FC63130B1F24974600FE23E0 /* PBXTargetDependency */,
+				FC6313201F25636C00FE23E0 /* PBXTargetDependency */,
 			);
 			name = SpaceTimeDemo;
 			productName = SpaceTimeDemo;
@@ -319,20 +329,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FC6312D21F22015000FE23E0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/MathUtil.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		FC6312D31F22018F00FE23E0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -381,7 +377,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC6312C01F2200B100FE23E0 /* SpaceTimeTests.swift in Sources */,
 				FC6312CD1F2200C300FE23E0 /* SiderealTimeTest.swift in Sources */,
 				FC6312CB1F2200C300FE23E0 /* CoordinateTest.swift in Sources */,
 				FC6312CC1F2200C300FE23E0 /* JulianDateTest.swift in Sources */,
@@ -405,10 +400,10 @@
 			target = FC6312A11F22002600FE23E0 /* SpaceTime */;
 			targetProxy = FC6312C31F2200B100FE23E0 /* PBXContainerItemProxy */;
 		};
-		FC63130B1F24974600FE23E0 /* PBXTargetDependency */ = {
+		FC6313201F25636C00FE23E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FC6312A11F22002600FE23E0 /* SpaceTime */;
-			targetProxy = FC63130A1F24974600FE23E0 /* PBXContainerItemProxy */;
+			targetProxy = FC63131F1F25636C00FE23E0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -617,6 +612,7 @@
 		FC6313071F2494EE00FE23E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 52RD2GH5DP;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -634,6 +630,7 @@
 		FC6313081F2494EE00FE23E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 52RD2GH5DP;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -685,6 +682,7 @@
 				FC6313081F2494EE00FE23E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

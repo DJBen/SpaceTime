@@ -24,7 +24,7 @@ public struct HorizontalCoordinate: ExpressibleByDictionaryLiteral {
 
     public init(equatorialCoordinate eqCoord: EquatorialCoordinate, observerInfo info: LocationAndTime) {
         let radianLat = radians(degrees: Double(info.location.coordinate.latitude))
-        let hourAngle = info.localSiderealTimeAngle - eqCoord.rightAscension
+        let hourAngle = SiderealTime.init(locationAndTime: info).hourAngle - eqCoord.rightAscension
         let sinAlt = sin(eqCoord.declination) * sin(radianLat) + cos(eqCoord.declination) * cos(radianLat) * cos(hourAngle)
         altitude = asin(sinAlt)
         let cosAzimuth = (sin(eqCoord.declination) - sinAlt * sin(radianLat)) / (cos(altitude) * cos(radianLat))
@@ -64,7 +64,7 @@ public extension EquatorialCoordinate {
         let sinLha = -sin(coord.azimuth) * cos(coord.altitude) / cos(dec)
         let cosLha = (sin(coord.altitude) - sin(latitude) * sin(dec)) / (cos(dec) * cos(latitude))
         let lha = atan2(sinLha, cosLha)
-        let ra = info.localSiderealTimeAngle - lha
+        let ra = SiderealTime.init(locationAndTime: info).hourAngle - lha
         self.init(rightAscension: ra, declination: dec, distance: 1)
     }
 }

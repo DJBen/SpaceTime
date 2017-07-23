@@ -27,15 +27,8 @@ public struct LocationAndTime {
         self.timestamp = timestamp ?? JulianDate(date: location.timestamp)
     }
 
-    /// local sidereal time as hour angle in radians.
-    public var localSiderealTimeAngle: Double {
-        let hours = location.coordinate.longitude / 15
-        let siderealTime = timestamp.greenwichMeanSiderealTime + hours
-        return wrapAngle(siderealTime / 12 * Double.pi)
-    }
-
     /// The transformation from celestial coordinate (RA, DEC) to North-East-Down coordinate (azi, elev) at the given ECEF coordinate (lat, lon) at the current time.
     public var localViewTransform: Matrix4 {
-        return location.ecefToLocalNedTransform * Matrix4.init(rotation: Vector4(0, 0, 1, -radians(hours: timestamp.greenwichMeanSiderealTime)))
+        return location.ecefToLocalNedTransform * Matrix4.init(rotation: Vector4(0, 0, 1, -SiderealTime(julianDate: timestamp).hourAngle))
     }
 }
