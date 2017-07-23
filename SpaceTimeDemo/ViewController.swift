@@ -61,13 +61,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         utcDateLabel.text = "Current UTC Date: \(dateFormatter.string(from: date))"
         if let location = locationManager.location {
             let locTime = LocationAndTime(location: location, timestamp: JulianDate(date: date))
-            let sidHours = hours(radians: locTime.localSiderealTimeAngle)
-            let hour = Int(modf(sidHours).0)
-            let min = Int(modf(modf(sidHours).1 * 60).0)
-            let sec = Int(modf(modf(modf(sidHours).1 * 60).1 * 60).0)
-            lstLabel.text = "Local Sidereal Time: \(hour):\(min):\(sec)"
+            let sidTime = SiderealTime.init(locationAndTime: locTime)
+            lstLabel.text = "Local Sidereal Time: \(String(describing: sidTime))"
             let vegaAziAlt = HorizontalCoordinate.init(equatorialCoordinate: vegaCoord, observerInfo: locTime)
-            vegaLabel.text = "Vega: (Alt: \(coordinateFormatter.string(from: degrees(radians: vegaAziAlt.altitude) as NSNumber)!), Azi: \(coordinateFormatter.string(from: degrees(radians: vegaAziAlt.azimuth) as NSNumber)!))\nAbove horizon? \(vegaAziAlt.altitude > 0 ? "Yes" : "No")"
+            vegaLabel.text = "Vega: (Altitude: \(coordinateFormatter.string(from: degrees(radians: vegaAziAlt.altitude) as NSNumber)!), Azimuth: \(coordinateFormatter.string(from: degrees(radians: vegaAziAlt.azimuth) as NSNumber)!))\nAbove horizon? \(vegaAziAlt.altitude > 0 ? "Yes" : "No")"
         }
     }
 
