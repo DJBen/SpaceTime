@@ -222,6 +222,7 @@
 				FC6312B91F2200B100FE23E0 /* Sources */,
 				FC6312BA1F2200B100FE23E0 /* Frameworks */,
 				FC6312BB1F2200B100FE23E0 /* Resources */,
+				EF252DE21F2B097100F1A696 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -329,6 +330,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		EF252DE21F2B097100F1A696 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/MathUtil.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		FC6312D31F22018F00FE23E0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

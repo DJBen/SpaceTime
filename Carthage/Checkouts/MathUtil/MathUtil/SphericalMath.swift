@@ -24,6 +24,11 @@ public func wrapAngle(_ angle: Double) -> Double {
     return wrapped
 }
 
+public func wrapHour(_ hour: Double) -> Double {
+    let wrapped = fmod(hour, 24)
+    return wrapped < 0 ? wrapped + 24 : wrapped
+}
+
 public func hours(radians: Double) -> Double {
     return radians / Double.pi * 12
 }

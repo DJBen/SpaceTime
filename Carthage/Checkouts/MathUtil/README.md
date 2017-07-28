@@ -18,20 +18,21 @@
 
 ### Carthage
 
-    github "DJBen/MathUtil", ~> 0.1.0
+    github "DJBen/MathUtil" ~> 0.1.0
 
 ## Usage
 
 ### Conversions
 #### Radian-degree conversion
-    radians(degrees: 30)             // 0.523...
-    degrees(radians: Double.Pi / 2)  // 90
-
+```swift
+radians(degrees: 30)             // 0.523...
+degrees(radians: Double.Pi / 2)  // 90
+```
 #### Angle-hour conversion
-
-    // Sirius' right ascension is 6h 45m 9s
-    radians(hours: 6, minutes: 45, seconds: 9) // 101.2875
-
+```swift
+// Sirius' right ascension is 6h 45m 9s
+radians(hours: 6, minutes: 45, seconds: 9) // 101.2875
+```
 ### Matrix, Quaternion and Vector Arithmetics
 
 See documentation for [VectorMath](https://github.com/nicklockwood/VectorMath).
@@ -39,29 +40,29 @@ See documentation for [VectorMath](https://github.com/nicklockwood/VectorMath).
 ### Interpolations
 
 #### Linear interpolation
-
-    // Starts at 2.1; ends at 7.5; wants to know 85% value.
-    let interp = Easing(startValue: 2.1, endValue: 7.5)
-    interp.value(at: 0.85)   // 6.69
-
+```swift
+// Starts at 2.1; ends at 7.5; wants to know 85% value.
+let interp = Easing(startValue: 2.1, endValue: 7.5)
+interp.value(at: 0.85)   // 6.69
+```
 #### Quadratic, Cubic, Ease In, Ease Out
 
 The following easing functions are available and [here](http://gizma.com/easing/) is their mathematic definitions.
-
-    public enum EasingFunction {
-        case linear
-        case quadraticEaseIn
-        case quadraticEaseOut
-        case quadraticEaseInOut
-        case cubicEaseIn
-        case cubicEaseOut
-        case cubicEaseInOut
-    }
-
+```swift
+public enum EasingFunction {
+    case linear
+    case quadraticEaseIn
+    case quadraticEaseOut
+    case quadraticEaseInOut
+    case cubicEaseIn
+    case cubicEaseOut
+    case cubicEaseInOut
+}
+```
 Just pass in the function when initializing `Easing` and take advantage of it!
-
-    Easing(easingMethod: .cubicEaseInOut, startValue: 21, endValue: -9)
-
+```swift
+Easing(easingMethod: .cubicEaseInOut, startValue: 21, endValue: -9)
+```
 ### Operator overloading
 
 - Add operator arithmetics for `CGVector` and `SCNVector3`.

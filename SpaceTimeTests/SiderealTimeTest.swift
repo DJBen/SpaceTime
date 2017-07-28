@@ -39,6 +39,8 @@ class SiderealTimeTest: XCTestCase {
         XCTAssertEqualWithAccuracy(sidTime.hour, 10 + 20 / 60.0 + 47.358 / 3600.0, accuracy: 1e-3)
         let angle: Double = (18 + 15 / 60.0 + 58.614 / 3600.0) / 12 * Double.pi
         XCTAssertEqualWithAccuracy(localSidTime.hourAngle, angle, accuracy: 1e-3)
+        let sidTime2 = SiderealTime(julianDate: 2457756.845138889)
+        XCTAssertEqualWithAccuracy(sidTime2.hour, 15.15996, accuracy: 1e-3)
     }
 
 }

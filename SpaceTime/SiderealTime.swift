@@ -41,9 +41,13 @@ public struct SiderealTime: CustomStringConvertible {
         return String(format: "%02d:%02d:%02d", hour, min, Int(sec))
     }
 
+    public init(hour: Double) {
+        self.hour = hour
+    }
+
     public init(locationAndTime locTime: LocationAndTime) {
         let timeZoneHours = locTime.location.coordinate.longitude / 15
-        hour = locTime.timestamp.greenwichMeanSiderealTime + timeZoneHours
+        hour = wrapHour(locTime.timestamp.greenwichMeanSiderealTime + timeZoneHours)
     }
 
     /// Greenwich mean sidereal time at Julian Date
