@@ -27,7 +27,7 @@ public struct JulianDate: CustomStringConvertible, ExpressibleByFloatLiteral, Co
     }
 
     public var description: String {
-        return "(JD \(value), \(date))"
+        return "<\(date), JD \(value)>"
     }
 
     public let value: Double

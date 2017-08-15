@@ -55,4 +55,9 @@ class JulianDateTest: XCTestCase {
         XCTAssertEqual(component.minute, 27)
         XCTAssertEqual(component.second, 10)
     }
+
+    func testDescription() {
+        let jd = JulianDate(2449430.6)
+        XCTAssertEqual(String(describing: jd), "<1994-03-19 02:24:00 +0000, JD 2449430.6>")
+    }
 }
