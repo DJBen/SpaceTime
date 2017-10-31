@@ -54,7 +54,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
     }
 
-    func screenUpdate() {
+    @objc func screenUpdate() {
         let date = Date()
         let jdValue = JulianDate(date: date).value as NSNumber
         julianDateLabel.text = "Current Julian Date: \(julianDateFormatter.string(from: jdValue)!)"
