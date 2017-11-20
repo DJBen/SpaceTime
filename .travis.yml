@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode9.1
 
 cache:
   directories:
@@ -7,4 +7,4 @@ cache:
 before_install:
   - travis_wait 40 carthage bootstrap --platform iOS --cache-builds
 script:
-  - xcodebuild -scheme SpaceTime -project SpaceTime.xcodeproj -sdk iphonesimulator11.0 -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.0' build test
+  - xcodebuild -scheme SpaceTime -project SpaceTime.xcodeproj -sdk iphonesimulator11.1 -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.1' build test
