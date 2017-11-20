@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC4D1E701FC2C43400011478 /* MathUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6312D81F22032000FE23E0 /* MathUtil.framework */; };
 		FC6312A71F22002600FE23E0 /* SpaceTime.h in Headers */ = {isa = PBXBuildFile; fileRef = FC6312A51F22002600FE23E0 /* SpaceTime.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC6312B31F2200AB00FE23E0 /* CLLocation+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312AD1F2200AB00FE23E0 /* CLLocation+Transform.swift */; };
 		FC6312B41F2200AB00FE23E0 /* EquatorialCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6312AE1F2200AB00FE23E0 /* EquatorialCoordinate.swift */; };
@@ -99,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC6312C21F2200B100FE23E0 /* SpaceTime.framework in Frameworks */,
+				FC4D1E701FC2C43400011478 /* MathUtil.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +273,7 @@
 					FC6312BC1F2200B100FE23E0 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 52RD2GH5DP;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					FC6312F61F2494EE00FE23E0 = {
@@ -467,6 +470,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -519,6 +523,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -547,7 +552,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -572,7 +577,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.squareup.sihao.SpaceTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -589,7 +594,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.squareup.sihao.SpaceTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -605,7 +611,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.squareup.sihao.SpaceTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -623,7 +630,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.squareup.sihao.SpaceTimeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -642,7 +649,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.squareup.sihao.SpaceTimeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

@@ -21,7 +21,7 @@ class JulianDateTest: XCTestCase {
         let components = DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2000, month: 1, day: 1, hour: 12)
         let date = calendar.date(from: components)!
         let JD = JulianDate(date: date)
-        XCTAssertEqualWithAccuracy(JD.value, JulianDate.J2000.value, accuracy: 1e-6)
+        XCTAssertEqual(JD.value, JulianDate.J2000.value, accuracy: 1e-6)
     }
 
     func testJulianDateToDate() {
@@ -41,7 +41,7 @@ class JulianDateTest: XCTestCase {
         let components = DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2017, month: 6, day: 20, hour: 5, minute: 27, second: 11)
         let date = components.date!
         let jd = JulianDate(date: date)
-        XCTAssertEqualWithAccuracy(jd.value, 2457924.72721, accuracy: 1e-4)
+        XCTAssertEqual(jd.value, 2457924.72721, accuracy: 1e-4)
     }
 
     func testRegularJulianDateToDate() {
