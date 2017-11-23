@@ -21,7 +21,7 @@ class SiderealTimeTest: XCTestCase {
         super.setUp()
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        let components = DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2017, month: 1, day: 3, hour: 3, minute: 29)
+        let components = DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2017 , month: 1, day: 3, hour: 3, minute: 29)
         let date = JulianDate(date: calendar.date(from: components)!)
         // coordinate of my hometown
         locationTime = LocationAndTime(location: CLLocation(latitude: 32.0603, longitude: 118.7969), timestamp: date)
