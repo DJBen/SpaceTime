@@ -22,6 +22,8 @@ fileprivate extension JulianDate {
 }
 
 public struct SiderealTime: CustomStringConvertible {
+    private var offsetHours: Double = 0
+
     /// Hours with fraction
     public let hour: Double
 
@@ -36,6 +38,10 @@ public struct SiderealTime: CustomStringConvertible {
         return radians(hours: hour)
     }
 
+    public var offsetFromGreenwichMeanSiderealTime: SiderealTimeOffset {
+        return SiderealTimeOffset(hour: offsetHours)
+    }
+
     public var description: String {
         let (hour, min, sec) = hourMinuteSecond
         return String(format: "%02d:%02d:%02d", hour, min, Int(sec))
@@ -46,8 +52,8 @@ public struct SiderealTime: CustomStringConvertible {
     }
 
     public init(locationAndTime locTime: LocationAndTime) {
-        let timeZoneHours = locTime.location.coordinate.longitude / 15
-        hour = wrapHour(locTime.timestamp.greenwichMeanSiderealTime + timeZoneHours)
+        offsetHours = locTime.location.coordinate.longitude / 15
+        hour = wrapHour(locTime.timestamp.greenwichMeanSiderealTime + offsetHours)
     }
 
     /// Greenwich mean sidereal time at Julian Date
@@ -56,3 +62,25 @@ public struct SiderealTime: CustomStringConvertible {
     }
 }
 
+public struct SiderealTimeOffset: CustomStringConvertible {
+    /// Hours with fraction
+    public let hour: Double
+
+    public var signHourMinuteSecond: (Int, Int, Int, Double) {
+        let sign = self.hour > 0 ? 1 : -1
+        let posHour = abs(self.hour)
+        let hour = Int(modf(posHour).0)
+        let min = Int(modf(modf(posHour).1 * 60).0)
+        let sec = modf(modf(modf(posHour).1 * 60).1 * 60).0
+        return (sign, hour, min, sec)
+    }
+
+    public var description: String {
+        let (sign, hour, min, sec) = signHourMinuteSecond
+        return String(format: "\(sign == 1 ? "+" : "-")%02d:%02d:%02d", hour, min, Int(sec))
+    }
+
+    public init(hour: Double) {
+        self.hour = hour
+    }
+}

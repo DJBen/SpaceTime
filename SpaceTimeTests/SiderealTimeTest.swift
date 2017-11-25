@@ -13,6 +13,8 @@ import CoreLocation
 class SiderealTimeTest: XCTestCase {
 
     var locationTime: LocationAndTime!
+    var locationTime2: LocationAndTime!
+
     var date: JulianDate {
         return locationTime.timestamp
     }
@@ -25,6 +27,7 @@ class SiderealTimeTest: XCTestCase {
         let date = JulianDate(date: calendar.date(from: components)!)
         // coordinate of my hometown
         locationTime = LocationAndTime(location: CLLocation(latitude: 32.0603, longitude: 118.7969), timestamp: date)
+        locationTime2 = LocationAndTime(location: CLLocation(latitude: 37.704215, longitude: -122.462358), timestamp: date)
     }
 
     override func tearDown() {
@@ -43,4 +46,12 @@ class SiderealTimeTest: XCTestCase {
         XCTAssertEqual(sidTime2.hour, 15.15996, accuracy: 1e-3)
     }
 
+    func testSiderealTimeOffset() {
+        let localSidTime = SiderealTime(locationAndTime: locationTime)
+        let localSidTime2 = SiderealTime(locationAndTime: locationTime2)
+        XCTAssertEqual(localSidTime.offsetFromGreenwichMeanSiderealTime.hour, 118.7969 / 15, accuracy: 1e-5)
+        XCTAssertEqual(String(describing: localSidTime.offsetFromGreenwichMeanSiderealTime), "+07:55:11")
+        XCTAssertEqual(localSidTime2.offsetFromGreenwichMeanSiderealTime.hour, -122.462358 / 15, accuracy: 1e-5)
+        XCTAssertEqual(String(describing: localSidTime2.offsetFromGreenwichMeanSiderealTime), "-08:09:50")
+    }
 }
