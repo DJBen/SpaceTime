@@ -12,9 +12,9 @@ import CoreLocation
 
 class SiderealTimeTest: XCTestCase {
 
-    var locationTime: LocationAndTime!
-    var locationTime2: LocationAndTime!
-    var locationTime3: LocationAndTime!
+    var locationTime: ObserverLocationTime!
+    var locationTime2: ObserverLocationTime!
+    var locationTime3: ObserverLocationTime!
 
     var date: JulianDay {
         return locationTime.timestamp
@@ -27,9 +27,9 @@ class SiderealTimeTest: XCTestCase {
         let components = DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 2017 , month: 1, day: 3, hour: 3, minute: 29)
         let date = JulianDay(date: calendar.date(from: components)!)
         // coordinate of my hometown
-        locationTime = LocationAndTime(location: CLLocation(latitude: 32.0603, longitude: 118.7969), timestamp: date)
-        locationTime2 = LocationAndTime(location: CLLocation(latitude: 37.704215, longitude: -122.462358), timestamp: date)
-        locationTime3 = LocationAndTime(location: CLLocation(latitude: 42, longitude: 9.32), timestamp: date)
+        locationTime = ObserverLocationTime(location: CLLocation(latitude: 32.0603, longitude: 118.7969), timestamp: date)
+        locationTime2 = ObserverLocationTime(location: CLLocation(latitude: 37.704215, longitude: -122.462358), timestamp: date)
+        locationTime3 = ObserverLocationTime(location: CLLocation(latitude: 42, longitude: 9.32), timestamp: date)
     }
 
     override func tearDown() {
@@ -39,7 +39,7 @@ class SiderealTimeTest: XCTestCase {
 
     func testSiderealTime() {
         let sidTime = SiderealTime(julianDay: date)
-        let localSidTime = SiderealTime(locationAndTime: locationTime)
+        let localSidTime = SiderealTime(observerLocationTime: locationTime)
         XCTAssertEqual(date.value, 2457756.645138889, accuracy: 1e-5)
         XCTAssertEqual(sidTime.hour, 10 + 20 / 60.0 + 47.358 / 3600.0, accuracy: 1e-3)
         let angle: Double = (18 + 15 / 60.0 + 58.614 / 3600.0) / 12 * Double.pi
@@ -49,9 +49,9 @@ class SiderealTimeTest: XCTestCase {
     }
 
     func testSiderealTimeOffset() {
-        let localSidTime = SiderealTime(locationAndTime: locationTime)
-        let localSidTime2 = SiderealTime(locationAndTime: locationTime2)
-        let localSidTime3 = SiderealTime(locationAndTime: locationTime3)
+        let localSidTime = SiderealTime(observerLocationTime: locationTime)
+        let localSidTime2 = SiderealTime(observerLocationTime: locationTime2)
+        let localSidTime3 = SiderealTime(observerLocationTime: locationTime3)
 
         XCTAssertEqual(localSidTime.offsetFromGreenwichMeanSiderealTime.hour, 118.7969 / 15, accuracy: 1e-5)
         XCTAssertEqual(String(describing: localSidTime.offsetFromGreenwichMeanSiderealTime), "+07:55:11")

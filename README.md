@@ -23,13 +23,13 @@ It showcases several useful scenarios.
 
 ### Carthage
 
-    github "DJBen/SpaceTime" ~> 0.1.0
+    github "DJBen/SpaceTime" ~> 0.2.0
 
 ## Usage
 Equatorial to horizontal coordinate:
 ```swift
 // Supply observer location and timestamp
-let locTime = LocationAndTime(location: location, timestamp: JulianDay.now)
+let locTime = ObserverLocationTime(location: location, timestamp: JulianDay.now)
 let vegaCoord = EquatorialCoordinate(rightAscension: radians(hours: 18, minutes: 36, seconds: 56.33635), declination: radians(degrees: 38, minutes: 47, seconds: 1.2802), distance: 1)
 // Azimuth and altitude of Vega
 let vegaAziAlt = HorizontalCoordinate.init(equatorialCoordinate: vegaCoord, observerInfo: locTime)
@@ -41,7 +41,7 @@ SiderealTime.init(julianDay: JulianDay.now)
 Local Apparent Sidereal Time:
 ```swift
 // Get location from GPS or hard code
-let locTime = LocationAndTime(location: location, timestamp: JulianDay.now)
-let localSidTime = SiderealTime.init(locationAndTime: locTime)
+let locTime = ObserverLocationTime(location: location, timestamp: JulianDay.now)
+let localSidTime = SiderealTime.init(observerLocationTime: locTime)
 ```
 More use cases can be found in the source.

@@ -51,7 +51,7 @@ public struct SiderealTime: CustomStringConvertible {
         self.hour = hour
     }
 
-    public init(locationAndTime locTime: LocationAndTime) {
+    public init(observerLocationTime locTime: ObserverLocationTime) {
         offsetHours = locTime.location.coordinate.longitude / 15
         hour = wrapHour(locTime.timestamp.greenwichMeanSiderealTime + offsetHours)
     }

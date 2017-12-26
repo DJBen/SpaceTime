@@ -60,8 +60,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         julianDayLabel.text = "Current Julian Date: \(julianDayFormatter.string(from: jdValue)!)"
         utcDateLabel.text = "Current UTC Date: \(dateFormatter.string(from: date))"
         if let location = locationManager.location {
-            let locTime = LocationAndTime(location: location, timestamp: JulianDay(date: date))
-            let sidTime = SiderealTime.init(locationAndTime: locTime)
+            let locTime = ObserverLocationTime(location: location, timestamp: JulianDay(date: date))
+            let sidTime = SiderealTime.init(observerLocationTime: locTime)
             lstLabel.text = "Local Sidereal Time: \(String(describing: sidTime))"
             let vegaAziAlt = HorizontalCoordinate.init(equatorialCoordinate: vegaCoord, observerInfo: locTime)
             vegaLabel.text = "Vega: (Altitude: \(coordinateFormatter.string(from: degrees(radians: vegaAziAlt.altitude) as NSNumber)!), Azimuth: \(coordinateFormatter.string(from: degrees(radians: vegaAziAlt.azimuth) as NSNumber)!))\nAbove horizon? \(vegaAziAlt.altitude > 0 ? "Yes" : "No")"

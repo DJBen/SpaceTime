@@ -32,15 +32,43 @@ public struct JulianDay: CustomStringConvertible, ExpressibleByFloatLiteral, Com
 
     public let value: Double
 
-    public init(_ value: FloatLiteralType) {
+    /// Difference between earth rotation time and terrestrial time.
+    /// It is derived from observation only and is reported in this
+    /// bulletin: http://maia.usno.navy.mil/ser7/ser7.dat,
+    /// where deltaT = 32.184 + (TAI-UTC) - DUT1
+    public var deltaT: Double
+
+    public var modifiedJulianDay: Double {
+        return value - 2400000.5
+    }
+
+    public var julianCentury: Double {
+        return (value - 2451545.0) / 36525.0
+    }
+
+    public var julianEphemerisDay: Double {
+        return value + deltaT / 86400.0
+    }
+
+    public var julianEphemerisCentury: Double {
+        return (julianEphemerisDay - 2451545.0) / 36525.0
+    }
+
+    public var julianEphemerisMillennium: Double {
+        return julianEphemerisCentury / 10.0
+    }
+
+    public init(_ value: FloatLiteralType, deltaT: Double = 0) {
         self.value = value
+        self.deltaT = deltaT
     }
 
     public init(floatLiteral value: FloatLiteralType) {
         self.value = value
+        self.deltaT = 0
     }
 
-    public init(date: Date) {
+    public init(date: Date, deltaT: Double = 0) {
         let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let year = components.year!
         let month = components.month!
@@ -55,6 +83,7 @@ public struct JulianDay: CustomStringConvertible, ExpressibleByFloatLiteral, Com
         JDN += floor((153 * m + 2) / 5)
         JDN += floor(y / 4) - floor(y / 100) + floor(y / 400)
         value = JDN + Double(hour - 12) / 24 + Double(minute) / 1440 + Double(second) / 86400
+        self.deltaT = deltaT
     }
 
     public var date: Date {
@@ -98,12 +127,12 @@ public struct JulianDay: CustomStringConvertible, ExpressibleByFloatLiteral, Com
         return JulianDay(lhs.value - rhs / 86400)
     }
 
-    /// Difference between Julian dates
+    /// Difference in fractional seconds between Julian dates
     ///
     /// - Parameters:
     ///   - lhs: Julian date
     ///   - rhs: Julian date to be subtracted
-    /// - Returns: The difference between two Julian dates in seconds
+    /// - Returns: The difference between two Julian dates in fractional seconds
     public static func -(lhs: JulianDay, rhs: JulianDay) -> TimeInterval {
         // convert day to seconds
         return (lhs.value - rhs.value) * 86400
