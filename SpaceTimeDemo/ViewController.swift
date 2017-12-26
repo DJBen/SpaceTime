@@ -11,7 +11,7 @@ import SpaceTime
 import CoreLocation
 import MathUtil
 
-let julianDateFormatter: NumberFormatter = {
+let julianDayFormatter: NumberFormatter = {
     let formatter = NumberFormatter()
     formatter.maximumFractionDigits = 5
     return formatter
@@ -35,7 +35,7 @@ let dateFormatter: DateFormatter = {
 // is a good site to verify the result if set location in simulator to "Apple"
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
-    @IBOutlet var julianDateLabel: UILabel!
+    @IBOutlet var julianDayLabel: UILabel!
     @IBOutlet var utcDateLabel: UILabel!
     @IBOutlet var currentCoordinateLabel: UILabel!
     @IBOutlet var lstLabel: UILabel!
@@ -56,11 +56,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @objc func screenUpdate() {
         let date = Date()
-        let jdValue = JulianDate(date: date).value as NSNumber
-        julianDateLabel.text = "Current Julian Date: \(julianDateFormatter.string(from: jdValue)!)"
+        let jdValue = JulianDay(date: date).value as NSNumber
+        julianDayLabel.text = "Current Julian Date: \(julianDayFormatter.string(from: jdValue)!)"
         utcDateLabel.text = "Current UTC Date: \(dateFormatter.string(from: date))"
         if let location = locationManager.location {
-            let locTime = LocationAndTime(location: location, timestamp: JulianDate(date: date))
+            let locTime = LocationAndTime(location: location, timestamp: JulianDay(date: date))
             let sidTime = SiderealTime.init(locationAndTime: locTime)
             lstLabel.text = "Local Sidereal Time: \(String(describing: sidTime))"
             let vegaAziAlt = HorizontalCoordinate.init(equatorialCoordinate: vegaCoord, observerInfo: locTime)
