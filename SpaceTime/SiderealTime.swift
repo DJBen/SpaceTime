@@ -67,7 +67,7 @@ public struct SiderealTimeOffset: CustomStringConvertible {
     public let hour: Double
 
     public var signHourMinuteSecond: (Int, Int, Int, Double) {
-        let sign = self.hour > 0 ? 1 : -1
+        let sign = self.hour >= 0 ? 1 : -1
         let posHour = abs(self.hour)
         let hour = Int(modf(posHour).0)
         let min = Int(modf(modf(posHour).1 * 60).0)
