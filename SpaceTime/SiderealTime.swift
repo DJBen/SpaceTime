@@ -10,10 +10,10 @@ import Foundation
 import CoreLocation
 import MathUtil
 
-fileprivate extension JulianDate {
+fileprivate extension JulianDay {
     /// GMST in hours and fraction of an hour
     var greenwichMeanSiderealTime: Double {
-        let diff = value - JulianDate.J2000.value
+        let diff = value - JulianDay.J2000.value
         // magic function comes from
         // https://en.wikipedia.org/wiki/Sidereal_time
         let gmst = 18.697374558 + 24.06570982441908 * diff
@@ -57,8 +57,8 @@ public struct SiderealTime: CustomStringConvertible {
     }
 
     /// Greenwich mean sidereal time at Julian Date
-    public init(julianDate: JulianDate) {
-        hour = julianDate.greenwichMeanSiderealTime
+    public init(julianDay: JulianDay) {
+        hour = julianDay.greenwichMeanSiderealTime
     }
 }
 
