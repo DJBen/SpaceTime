@@ -1,5 +1,5 @@
 //
-//  LocationAndTime.swift
+//  ObserverLocationTime.swift
 //  SpaceTime
 //
 //  Created by Sihao Lu on 1/5/17.
@@ -13,7 +13,7 @@ import MathUtil
 /// This struct encloses a referential timestamp and a location.
 ///
 /// **Note**: The meaning of timestamp is foundamentally different from the `timestamp` in CLLocation, which in turns specifies the timestamp the location is measured.
-public struct LocationAndTime {
+public struct ObserverLocationTime {
     public let location: CLLocation
     public var timestamp: JulianDay
 
