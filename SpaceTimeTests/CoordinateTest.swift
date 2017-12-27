@@ -98,7 +98,7 @@ class CoordinateTest: XCTestCase {
         let calendar = Calendar(identifier: .gregorian)
         let components = DateComponents(calendar: calendar, timeZone: TimeZone(secondsFromGMT: 0), year: 1992, month: 4, day: 12, hour: 0)
         let julianDay = JulianDay(date: calendar.date(from: components)!)
-        let moon = EclipticalCoordinate(longitude: radians(degrees: 133, minutes: 10, seconds: 2), latitude: -radians(degrees: 3, minutes: 13, seconds: 45), julianDay: julianDay)
+        let moon = EclipticalCoordinate(longitude: radians(degrees: 133, minutes: 10, seconds: 2), latitude: -radians(degrees: 3, minutes: 13, seconds: 45), distance: 1, julianDay: julianDay)
         let equat = EquatorialCoordinate(eclipticalCoordinate: moon, julianDay: julianDay)
         XCTAssertEqual(equat.rightAscension, radians(hours: 8, minutes: 58, seconds: 45.2), accuracy: 1e-5)
         XCTAssertEqual(equat.declination, radians(degrees: 13, minutes: 46, seconds: 6), accuracy: 1e-5)
