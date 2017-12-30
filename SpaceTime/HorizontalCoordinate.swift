@@ -15,7 +15,9 @@ public struct HorizontalCoordinate: ExpressibleByDictionaryLiteral {
 
     public init(azimuth: DegreeAngle, altitude: DegreeAngle) {
         self.azimuth = azimuth
+        self.azimuth.wrapMode = .range0_360
         self.altitude = altitude
+        self.altitude.wrapMode = .range_180
     }
 
     public init(cartesian vec: Vector3, observerInfo info: ObserverLocationTime) {

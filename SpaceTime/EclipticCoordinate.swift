@@ -19,6 +19,8 @@ public struct EclipticCoordinate {
     public init(longitude: DegreeAngle, latitude: DegreeAngle, distance: Double, julianDay: JulianDay) {
         self.latitude = latitude
         self.longitude = longitude
+        self.latitude.wrapMode = .range_180
+        self.longitude.wrapMode = .range_180
         self.julianDay = julianDay
         self.distance = distance
     }
@@ -37,6 +39,8 @@ public struct EclipticCoordinate {
         let ε = EclipticUtil.obliquityOfEcliptic(julianDay: julianDay)
         longitude = DegreeAngle(radianAngle: RadianAngle(atan2(sin(coord.rightAscension) * cos(ε) + tan(coord.declination) * sin(ε), cos(coord.rightAscension))))
         latitude = DegreeAngle(radianAngle: RadianAngle(asin(sin(coord.declination) * cos(ε) - cos(coord.declination) * sin(ε) * sin(coord.rightAscension))))
+        latitude.wrapMode = .range_180
+        longitude.wrapMode = .range_180
         distance = coord.distance
         self.julianDay = julianDay
     }

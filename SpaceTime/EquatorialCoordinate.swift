@@ -40,6 +40,7 @@ public struct EquatorialCoordinate: ExpressibleByDictionaryLiteral {
         self.rightAscension = rightAscension
         self.declination = declination
         self.distance = distance
+        self.declination.wrapMode = .range_180
     }
 
     public init(dictionary: [String: Double]) {
