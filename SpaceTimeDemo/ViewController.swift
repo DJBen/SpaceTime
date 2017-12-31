@@ -43,7 +43,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     lazy var locationManager = CLLocationManager()
 
-    let vegaCoord = EquatorialCoordinate(rightAscension: radians(hours: 18, minutes: 36, seconds: 56.33635), declination: radians(degrees: 38, minutes: 47, seconds: 1.2802), distance: 1)
+    let vegaCoord = EquatorialCoordinate(rightAscension: HourAngle(hour: 18, minute: 36, second: 56.33635), declination: DegreeAngle(degree: 38, minute: 47, second: 1.2802), distance: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let sidTime = SiderealTime.init(observerLocationTime: locTime)
             lstLabel.text = "Local Sidereal Time: \(String(describing: sidTime))"
             let vegaAziAlt = HorizontalCoordinate.init(equatorialCoordinate: vegaCoord, observerInfo: locTime)
-            vegaLabel.text = "Vega: (Altitude: \(coordinateFormatter.string(from: degrees(radians: vegaAziAlt.altitude) as NSNumber)!), Azimuth: \(coordinateFormatter.string(from: degrees(radians: vegaAziAlt.azimuth) as NSNumber)!))\nAbove horizon? \(vegaAziAlt.altitude > 0 ? "Yes" : "No")"
+            vegaLabel.text = "Vega: (Altitude: \(coordinateFormatter.string(from: vegaAziAlt.altitude.wrappedValue as NSNumber)!), Azimuth: \(coordinateFormatter.string(from: vegaAziAlt.azimuth.wrappedValue as NSNumber)!))\nAbove horizon? \(vegaAziAlt.altitude.wrappedValue > 0 ? "Yes" : "No")"
         }
     }
 

@@ -169,6 +169,7 @@ private func polynomial<T: Angle>(coefficient t: Double, terms: [T]) -> T {
         return term * pow(t, Double(index))
     }.reduce(T(0), +)
 }
+
 private let argumentMultiples: [[Int]] = [
     [0, 0, 0, 0, 1],
     [-2, 0, 0, 2, 2],
