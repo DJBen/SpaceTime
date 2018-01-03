@@ -123,4 +123,10 @@ class CoordinateTest: XCTestCase {
         XCTAssertEqual(eclip.longitude.wrappedValue, 113.21563, accuracy: 1e-5)
         XCTAssertEqual(eclip.latitude.wrappedValue, 6.68417, accuracy: 1e-5)
     }
+
+    func testAngularSeparation() {
+        let merak = EquatorialCoordinate(rightAscension: 11.0306, declination: 56.3825, distance: 1)
+        let dubhe = EquatorialCoordinate(rightAscension: 11.0622, declination: 61.7511, distance: 1)
+        XCTAssertEqual(merak.angularSeparation(from: dubhe).wrappedValue, 5.37413, accuracy: 1e-4)
+    }
 }

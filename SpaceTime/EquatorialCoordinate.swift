@@ -111,4 +111,13 @@ public extension EquatorialCoordinate {
         let x2 = r * x1
         return EquatorialCoordinate(rightAscension: HourAngle(radianAngle: RadianAngle(atan2(x2.y, x2.x))), declination: DegreeAngle(radianAngle: RadianAngle(asin(x2.z))), distance: distance)
     }
+
+    public func angularSeparation(from coord: EquatorialCoordinate) -> DegreeAngle {
+        // use special case of the Vincenty formula for an ellipsoid with equal major and minor axes for greater accuracy
+        let (α1, α2, δ1, δ2) = (rightAscension, coord.rightAscension, declination, coord.declination)
+        let t1 = pow(cos(δ2) * sin(α2 - α1), 2)
+        let t2 = pow(cos(δ1) * sin(δ2) - sin(δ1) * cos(δ2) * cos(α2 - α1), 2)
+        let denom = sin(δ1) * sin(δ2) + cos(δ1) * cos(δ2) * cos(α2 - α1)
+        return DegreeAngle(radianAngle: RadianAngle(atan2(sqrt(t1 + t2), denom)))
+    }
 }
